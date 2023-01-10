@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import { createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils'
+import {
+	createAuthUserWithEmailAndPassword,
+	createUserDocumentFromAuth,
+} from '../../utils/firebase/firebase.utils'
 const defaultFormFields = {
 	displayName: '',
 	email: '',
@@ -19,8 +22,12 @@ const SignUpForm = () => {
 		event.preventDefault()
 
 		if (password === confirmPassword) {
-			const user = await createAuthUserWithEmailAndPassword(email, password)
-			console.log(user)
+			const UserCredential = await createAuthUserWithEmailAndPassword(
+				email,
+				password
+			)
+			console.log(UserCredential.user)
+			const userDocRef = await createUserDocumentFromAuth(UserCredential.user)
 		}
 	}
 
