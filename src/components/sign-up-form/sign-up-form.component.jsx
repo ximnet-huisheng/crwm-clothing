@@ -52,19 +52,6 @@ const SignUpForm = () => {
 		setFormFields({ ...formFields, [name]: value })
 	}
 
-	const handleSubmit = async (event) => {
-		event.preventDefault()
-
-		if (password === confirmPassword) {
-			const UserCredential = await createAuthUserWithEmailAndPassword(
-				email,
-				password
-			)
-			console.log(UserCredential.user)
-			const userDocRef = await createUserDocumentFromAuth(UserCredential.user)
-		}
-	}
-
 	return (
 		<div className='sign-up-container'>
 			<h2>Don't have an account?</h2>
