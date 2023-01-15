@@ -1,5 +1,15 @@
+import SHOP_DATA from '../../shop-data.json'
+
 const Shop = () => {
-  return (  );
+	return (
+		<div>
+			{SHOP_DATA.map(({ name, id }) => (
+				<div key={id}>
+					<h1>{name}</h1>
+				</div>
+			))}
+		</div>
+	)
 }
- 
-export default Shop;
+
+export default Shop
