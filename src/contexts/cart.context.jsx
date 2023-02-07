@@ -9,7 +9,7 @@ const addCartItem = (cartItems, productToAdd) => {
 
 	//if found, increment quantity
 	if (existingCartItem) {
-		cartItems.map((cartItem) =>
+		return cartItems.map((cartItem) =>
 			cartItem.id === productToAdd.id
 				? { ...cartItem, quantity: cartItem.quantity + 1 }
 				: cartItem
@@ -34,6 +34,6 @@ export const CartProvider = ({ children }) => {
 		setCartItems(addCartItem(cartItems, productToAdd))
 	}
 
-	const value = { isCartOpen, setIsCartOpen }
+	const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems }
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
