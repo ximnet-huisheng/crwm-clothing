@@ -29,7 +29,12 @@ const Home = () => {
 		},
 	]
 
-	return <><Directory categories={categories} /><Outlet></Outlet></>
+	return (
+		<>
+			<Directory categories={categories} />
+			<Outlet></Outlet>
+		</>
+	)
 }
 
 export default Home
